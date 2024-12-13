@@ -1,14 +1,25 @@
 import { locationTypeChoices } from "./location.js"
 import { ownJeansChoices } from "./ownJeans.js"
+import { saveSubmission } from "./savedSubmissions.js"
+import { SubmissionList } from "./submissions.js"
 
 const container = document.querySelector ("#container")
 
-const putItonDOM = async() => {
+const putItOnDOM = async() => {
     const jeanOwnerHtml=ownJeansChoices()
     const locationHtml=await locationTypeChoices()
+    const buttonHTML = await saveSubmission()
+    const savedSubHTML= await SubmissionList()
 
     container.innerHTML = ` ${jeanOwnerHtml} 
-                            ${locationHtml}`
+                            ${locationHtml}
+                            ${buttonHTML}
+                            ${savedSubHTML}`
 }
 
-putItonDOM()
+
+
+
+document.addEventListener("newSubmissionCreated",putItOnDOM)
+
+putItOnDOM()

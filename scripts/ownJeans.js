@@ -26,3 +26,4 @@ const handleOwnershipChange = (changeEvent) => {
             setOwnsBlueJeans(convertedToBoolean)
     }
  }
+ 
